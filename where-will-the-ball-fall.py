@@ -2,13 +2,6 @@ from typing import List
 
 class Solution:
     def findBall(self, grid: List[List[int]]) -> List[int]:
-        #print(len(grid))
-        #print(len(grid[0]))
-        '''for row in grid:
-            string = ""
-            for tile in row:
-                string += "\\" if tile == 1 else "/"
-            print(string)'''
         balls = [i for i in range(len(grid[0]))]
         for row in grid:
             balls = self.doIteration(balls, row)
@@ -35,6 +28,3 @@ class Solution:
             if balls[i] > -1:
                 ballsIterated[i + row[i]] = balls[i]
         return ballsIterated
-
-s = Solution()
-print(s.findBall([[-1,1,-1,-1,-1,-1,-1,-1,1,-1,-1,-1,-1,1,1,-1,-1,-1,1,1,1,-1,-1,1,1,-1,-1,1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,-1,1,-1,-1,-1,-1,-1,-1,-1,1,-1,-1,1,-1,1,-1,-1,1,1,-1,1,-1,-1,-1,-1,1,1,1,1,1,1,-1,1,1,1,-1,1,1,1,-1,-1,-1,1,-1,1,-1,-1,1,1,-1,-1,1,-1,1,-1,1,1,1,-1,-1,-1,-1]]))
