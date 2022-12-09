@@ -1,3 +1,5 @@
+from collections import deque
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -9,22 +11,24 @@ class TreeNode:
 
 def buildBinaryTree(vals):
     root = TreeNode(vals[0])
-    curr = [root]
+    frontier = deque([root])
+    newFrontier = deque()
     i = 1
-    while i < len(vals):
-        newCurr = []
-        for node in curr:
-            if i >= len(vals):
-                return root
-            if vals[i]:
-                node.left = TreeNode(vals[i])
-                newCurr.append(node.left)
-            i += 1
-            if vals[i]:
-                node.right = TreeNode(vals[i])
-                newCurr.append(node.right)
-            i += 1
-        curr = newCurr
+    addLeft = True
+    while i < len(vals) and frontier:
+        if vals[i] is not None:
+            if addLeft:
+                frontier[0].left = TreeNode(vals[i])
+                newFrontier.append(frontier[0].left)
+            else:
+                frontier[0].right = TreeNode(vals[i])
+                newFrontier.append(frontier[0].right)
+        if not addLeft:
+            frontier.popleft()
+        addLeft = not addLeft
+        if not frontier:
+            frontier = newFrontier
+        i += 1
     return root
 
 def printBinaryTree(node):
