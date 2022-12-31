@@ -36,6 +36,3 @@ class Solution:
             return out
 
         return getPaths(frozenset({start}), start)
-
-s = Solution()
-print(s.uniquePathsIII([[1,0,0,0],[0,0,0,0],[0,0,0,2]]))
