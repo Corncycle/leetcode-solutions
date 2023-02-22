@@ -24,6 +24,3 @@ class Solution:
             else:
                 left = mp
         return left if capacityWorks(left) else right
-
-s = Solution()
-print(s.shipWithinDays(weights = [3,2,2,4,1,4], days = 3))
