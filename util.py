@@ -8,6 +8,11 @@ class TreeNode:
 
     def __repr__(self) -> str:
         return str(self.val)
+    
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 def buildBinaryTree(vals):
     root = TreeNode(vals[0])
