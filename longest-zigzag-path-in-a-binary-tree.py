@@ -11,7 +11,7 @@ class Solution:
         def getRightZz(node):
             if not hasattr(node, "rightzz"):
                 node.rightzz = 1 + getLeftZz(node.right) if node.right else 0
-            return node.leftzz
+            return node.rightzz
 
         self.best = 0
 
