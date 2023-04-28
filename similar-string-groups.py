@@ -16,8 +16,3 @@ class Solution:
                 groups[-1].extend(equivs)
                 frontier.extend(equivs)
         return len(groups)
-
-
-
-s = Solution()
-s.numSimilarGroups(["omv","ovm"])
